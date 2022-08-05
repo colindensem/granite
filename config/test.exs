@@ -14,7 +14,8 @@ config :club, Club.Repo,
 # you can enable the server option below.
 config :club, ClubWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "/OiGTn8bwALxUXqxDhkCwhojbmllkY7oNwsQypIWf+erm19DAflChkZzZ02tbJWH",
+  secret_key_base:
+    "/OiGTn8bwALxUXqxDhkCwhojbmllkY7oNwsQypIWf+erm19DAflChkZzZ02tbJWH",
   server: false
 
 # In test we don't send emails.

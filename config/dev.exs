@@ -20,10 +20,12 @@ config :club, ClubWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "zvvXlbZiCKiT7zlCcdXDh73yJGDMvTD8Aqv4/K2m47jmhq1buqt1hOWGBFogA70Y",
+  secret_key_base:
+    "zvvXlbZiCKiT7zlCcdXDh73yJGDMvTD8Aqv4/K2m47jmhq1buqt1hOWGBFogA70Y",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
+    esbuild:
+      {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
   ]
 
 # ## SSL Support

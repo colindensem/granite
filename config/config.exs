@@ -14,7 +14,11 @@ config :club,
 # Configures the endpoint
 config :club, ClubWeb.Endpoint,
   url: [host: "localhost"],
-  render_errors: [view: ClubWeb.ErrorView, accepts: ~w(html json), layout: false],
+  render_errors: [
+    view: ClubWeb.ErrorView,
+    accepts: ~w(html json),
+    layout: false
+  ],
   pubsub_server: Club.PubSub,
   live_view: [signing_salt: "bHbN4wIx"]
 
