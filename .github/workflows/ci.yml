@@ -65,8 +65,14 @@ jobs:
         run: |-
           mix deps.get
           mix deps.compile
+
       - name: Formatting checks
         run: mix format --check-formatted
 
       - name: Run Tests
         run: mix test
+
+      - name : Coverage  Report
+        run: mix coveralls.github
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

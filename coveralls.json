@@ -1,0 +1,14 @@
+{
+  "skip_files": [
+    "test/"
+  ],
+  "terminal_options": {
+    "file_column_width": 40
+  },
+  "custom_stop_words": [],
+  "coverage_options": {
+    "output_dir": "cover/",
+    "minimum_coverage": 50,
+    "html_filter_full_covered": true
+  }
+}
