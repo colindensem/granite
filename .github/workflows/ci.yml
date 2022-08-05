@@ -69,6 +69,9 @@ jobs:
       - name: Formatting checks
         run: mix format --check-formatted
 
+      - name: Credo checks
+        run: mix format --check-formatted
+
       - name: Run Tests
         run: mix test
 
