@@ -1,4 +1,4 @@
-name: "Club CI"
+name: "Granite CI"
 
 on:
   push:

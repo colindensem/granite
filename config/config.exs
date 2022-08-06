@@ -7,19 +7,19 @@
 # General application configuration
 import Config
 
-config :club,
-  ecto_repos: [Club.Repo],
+config :granite,
+  ecto_repos: [Granite.Repo],
   generators: [binary_id: true]
 
 # Configures the endpoint
-config :club, ClubWeb.Endpoint,
+config :granite, GraniteWeb.Endpoint,
   url: [host: "localhost"],
   render_errors: [
-    view: ClubWeb.ErrorView,
+    view: GraniteWeb.ErrorView,
     accepts: ~w(html json),
     layout: false
   ],
-  pubsub_server: Club.PubSub,
+  pubsub_server: Granite.PubSub,
   live_view: [signing_salt: "bHbN4wIx"]
 
 # Configures the mailer
@@ -29,7 +29,7 @@ config :club, ClubWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :club, Club.Mailer, adapter: Swoosh.Adapters.Local
+config :granite, Granite.Mailer, adapter: Swoosh.Adapters.Local
 
 # Swoosh API client is needed for adapters other than SMTP.
 config :swoosh, :api_client, false

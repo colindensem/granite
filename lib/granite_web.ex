@@ -1,12 +1,12 @@
-defmodule ClubWeb do
+defmodule GraniteWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use ClubWeb, :controller
-      use ClubWeb, :view
+      use GraniteWeb, :controller
+      use GraniteWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,19 +19,19 @@ defmodule ClubWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: ClubWeb
+      use Phoenix.Controller, namespace: GraniteWeb
 
       import Plug.Conn
-      import ClubWeb.Gettext
-      alias ClubWeb.Router.Helpers, as: Routes
+      import GraniteWeb.Gettext
+      alias GraniteWeb.Router.Helpers, as: Routes
     end
   end
 
   def view do
     quote do
       use Phoenix.View,
-        root: "lib/club_web/templates",
-        namespace: ClubWeb
+        root: "lib/granite_web/templates",
+        namespace: GraniteWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
@@ -45,7 +45,7 @@ defmodule ClubWeb do
   def live_view do
     quote do
       use Phoenix.LiveView,
-        layout: {ClubWeb.LayoutView, "live.html"}
+        layout: {GraniteWeb.LayoutView, "live.html"}
 
       unquote(view_helpers())
     end
@@ -80,7 +80,7 @@ defmodule ClubWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import ClubWeb.Gettext
+      import GraniteWeb.Gettext
     end
   end
 
@@ -95,9 +95,9 @@ defmodule ClubWeb do
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
 
-      import ClubWeb.ErrorHelpers
-      import ClubWeb.Gettext
-      alias ClubWeb.Router.Helpers, as: Routes
+      import GraniteWeb.ErrorHelpers
+      import GraniteWeb.Gettext
+      alias GraniteWeb.Router.Helpers, as: Routes
     end
   end
 

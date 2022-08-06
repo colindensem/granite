@@ -1,4 +1,4 @@
-defmodule Club.Application do
+defmodule Granite.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -9,20 +9,20 @@ defmodule Club.Application do
   def start(_type, _args) do
     children = [
       # Start the Ecto repository
-      Club.Repo,
+      Granite.Repo,
       # Start the Telemetry supervisor
-      ClubWeb.Telemetry,
+      GraniteWeb.Telemetry,
       # Start the PubSub system
-      {Phoenix.PubSub, name: Club.PubSub},
+      {Phoenix.PubSub, name: Granite.PubSub},
       # Start the Endpoint (http/https)
-      ClubWeb.Endpoint
-      # Start a worker by calling: Club.Worker.start_link(arg)
-      # {Club.Worker, arg}
+      GraniteWeb.Endpoint
+      # Start a worker by calling: Granite.Worker.start_link(arg)
+      # {Granite.Worker, arg}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: Club.Supervisor]
+    opts = [strategy: :one_for_one, name: Granite.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
@@ -30,7 +30,7 @@ defmodule Club.Application do
   # whenever the application is updated.
   @impl true
   def config_change(changed, _new, removed) do
-    ClubWeb.Endpoint.config_change(changed, removed)
+    GraniteWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 end

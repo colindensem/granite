@@ -9,7 +9,7 @@ By participating in this project, you agree to abide by the code of conduct.
 Fork, then clone the repo:
 
 ```bash
-git clone git@github.com:your-username/club.git
+git clone git@github.com:your-username/granite.git
 ```
 
 Please read [development](DEVELOPMENT.md) for project setup and configuration documentation

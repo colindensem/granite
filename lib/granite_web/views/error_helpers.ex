@@ -1,4 +1,4 @@
-defmodule ClubWeb.ErrorHelpers do
+defmodule GraniteWeb.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -39,9 +39,9 @@ defmodule ClubWeb.ErrorHelpers do
     # should be written to the errors.po file. The :count option is
     # set by Ecto and indicates we should also apply plural rules.
     if count = opts[:count] do
-      Gettext.dngettext(ClubWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(GraniteWeb.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(ClubWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(GraniteWeb.Gettext, "errors", msg, opts)
     end
   end
 end

@@ -1,5 +1,5 @@
-defmodule ClubWeb.PageControllerTest do
-  use ClubWeb.ConnCase
+defmodule GraniteWeb.PageControllerTest do
+  use GraniteWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get(conn, "/")

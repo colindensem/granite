@@ -1,4 +1,4 @@
-# Club
+# Granite
 
 To start your Phoenix server:
 

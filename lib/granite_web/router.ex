@@ -1,11 +1,11 @@
-defmodule ClubWeb.Router do
-  use ClubWeb, :router
+defmodule GraniteWeb.Router do
+  use GraniteWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_live_flash
-    plug :put_root_layout, {ClubWeb.LayoutView, :root}
+    plug :put_root_layout, {GraniteWeb.LayoutView, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
@@ -14,7 +14,7 @@ defmodule ClubWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", ClubWeb do
+  scope "/", GraniteWeb do
     pipe_through :browser
 
     get "/", PageController, :index
@@ -22,7 +22,7 @@ defmodule ClubWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", ClubWeb do
+  # scope "/api", GraniteWeb do
   #   pipe_through :api
   # end
 
@@ -39,7 +39,7 @@ defmodule ClubWeb.Router do
     scope "/" do
       pipe_through :browser
 
-      live_dashboard "/dashboard", metrics: ClubWeb.Telemetry
+      live_dashboard "/dashboard", metrics: GraniteWeb.Telemetry
     end
   end
 

@@ -1,4 +1,4 @@
-defmodule ClubWeb.Telemetry do
+defmodule GraniteWeb.Telemetry do
   @moduledoc false
   use Supervisor
   import Telemetry.Metrics
@@ -32,24 +32,24 @@ defmodule ClubWeb.Telemetry do
       ),
 
       # Database Metrics
-      summary("club.repo.query.total_time",
+      summary("granite.repo.query.total_time",
         unit: {:native, :millisecond},
         description: "The sum of the other measurements"
       ),
-      summary("club.repo.query.decode_time",
+      summary("granite.repo.query.decode_time",
         unit: {:native, :millisecond},
         description:
           "The time spent decoding the data received from the database"
       ),
-      summary("club.repo.query.query_time",
+      summary("granite.repo.query.query_time",
         unit: {:native, :millisecond},
         description: "The time spent executing the query"
       ),
-      summary("club.repo.query.queue_time",
+      summary("granite.repo.query.queue_time",
         unit: {:native, :millisecond},
         description: "The time spent waiting for a database connection"
       ),
-      summary("club.repo.query.idle_time",
+      summary("granite.repo.query.idle_time",
         unit: {:native, :millisecond},
         description:
           "The time the connection spent waiting before being checked out for the query"
@@ -67,7 +67,7 @@ defmodule ClubWeb.Telemetry do
     [
       # A module, function and arguments to be invoked periodically.
       # This function must call :telemetry.execute/3 and a metric must be added above.
-      # {ClubWeb, :count_users, []}
+      # {GraniteWeb, :count_users, []}
     ]
   end
 end

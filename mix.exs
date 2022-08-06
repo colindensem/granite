@@ -1,9 +1,9 @@
-defmodule Club.MixProject do
+defmodule Granite.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :club,
+      app: :granite,
       version: "0.1.0",
       elixir: "~> 1.12",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -26,7 +26,7 @@ defmodule Club.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {Club.Application, []},
+      mod: {Granite.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end

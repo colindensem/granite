@@ -1,1 +1,1 @@
-alias Club.Repo
+alias Granite.Repo

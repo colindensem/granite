@@ -1,5 +1,5 @@
-defmodule ClubWeb.ErrorView do
-  use ClubWeb, :view
+defmodule GraniteWeb.ErrorView do
+  use GraniteWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.
