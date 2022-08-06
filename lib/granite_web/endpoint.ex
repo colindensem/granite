@@ -7,7 +7,8 @@ defmodule GraniteWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_granite_key",
-    signing_salt: "LDdObZpx"
+    signing_salt: "LDdObZpx",
+    encryption_salt: "aTQzYIG3l"
   ]
 
   socket "/live", Phoenix.LiveView.Socket,
