@@ -57,7 +57,9 @@ defmodule Club.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:excoveralls, "~> 0.10", only: [:dev, :test]},
-      {:credo, "~> 1.6", only: [:dev, :test], runtime: false}
+      {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
+      {:mix_test_interactive, "~> 1.0", only: :dev, runtime: false},
+      {:ex_unit_notifier, "~> 1.2", only: :test}
     ]
   end
 
