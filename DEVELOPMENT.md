@@ -16,6 +16,10 @@
 
 Chosen for a multitude of reasons.
 
+- Current stack of choice & work.
+- Low impact on resources to operate.
+- Open and accessible to beginners.
+
 ### Back-end
 
 - [SQLite3](https://www.sqlite.org/)
@@ -25,63 +29,61 @@ Chosen for a multitude of reasons.
 - [TailwindCSS](https://tailwindcss.com/)
 - [Heroicons](https://heroicons.com/)
 
-
 ## Notable opinions and packages
 
 Phoenix is a healthy mix of being both opinionated and unopinionated.
 Here's a few note worthy additions and changes.
 
 - **Static analysis and testing**:
-    - *[credo](https://github.com/rrrene/credo)* helps create more consistent code
-    - *[excoveralls](https://github.com/parroty/excoveralls)* for getting detailed test coverage reports
+  - *[credo](https://github.com/rrrene/credo)* helps create more consistent code
+  - *[excoveralls](https://github.com/parroty/excoveralls)* for getting detailed test coverage reports
 - **Controllers**:
-    - Add `page` controller to render a `/` page and `/up` health check endpoint
+  - Add `page` controller to render a `/` page and `/up` health check endpoint
 - **Config**:
-    - The `.env` file stores all environment variables
-    - The `.iex.exs` file for IEX tweaking
-    - Put prod config settings with environment variables in `config/runtime.exs` (works with releases)
+  - The `.env` file stores all environment variables
+  - The `.iex.exs` file for IEX tweaking
+  - Put prod config settings with environment variables in `config/runtime.exs` (works with releases)
 - **Phoenix defaults that are changed**:
-    - Cookies are encrypted see `lib/granite_web/endpoint.ex`
-    - `.formatter.exs` has been configured to use 80 character line lengths
-    - The project was generated with `--binary-id` for long, but safer ids
+  - Cookies are encrypted see `lib/granite_web/endpoint.ex`
+  - `.formatter.exs` has been configured to use 80 character line lengths
+  - The project was generated with `--binary-id` for long, but safer ids
 
 - **Front-end assets**:
-    - Phoenix 1.6 uses `ESBuild`
+  - Phoenix 1.6 uses `ESBuild`
 
 ## Running this app
 
 You also need Elrang and Elixir installed. Check [mix.exs](mix.exs) for appropriate version requirements.
 
-#### Clone this repo anywhere you want and move into the directory
+### Clone this repo anywhere you want and move into the directory
 
 ```sh
 git clone https://github.com/colindensem/granite granite
 cd granite
 ```
 
-#### Copy a the example files because the real files are git ignored
+### Copy a the example files because the real files are git ignored
 
 ```sh
 cp .env.example .env
 cp .iex.exs.example .iex.exs
 ```
 
-#### Build everything
+### Build everything
 
 To start your Phoenix server:
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+- Install dependencies with `mix deps.get`
+- Create and migrate your database with `mix ecto.setup`
+- Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-#### Open the application in a browser:
+### Open the application in a browser:
 
 Visit <http://localhost:4000> in your browser.
 
-
-#### Formatting your code base:
+### Formatting your code base:
 
 ```sh
 # You can check to see if any code is not formatted correctly.
@@ -91,14 +93,14 @@ mix format --check-formatted
 mix format
 ```
 
-#### Analysing your code base:
+### Analysing your code base
 
 ```sh
 # You should get a report back saying there's no issues.
 mix credo
 ```
 
-#### Running the test suite:
+### Running the test suite
 
 ```sh
 # You should see all passing tests. Warnings are typically ok.
@@ -108,7 +110,7 @@ mix test
 MIX_ENV=test mix coveralls
 
 # You can also watch for changes and run tests as you go.
-mix test.watch
+mix test.interactive
 ```
 
 ### `.env`
