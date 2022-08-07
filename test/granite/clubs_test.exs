@@ -6,8 +6,6 @@ defmodule Granite.ClubsTest do
   describe "clubs" do
     alias Granite.Clubs.Club
 
-    import Granite.ClubsFixtures
-
     @invalid_attrs %{
       contact_email: nil,
       contact_name: nil,
@@ -17,12 +15,12 @@ defmodule Granite.ClubsTest do
     }
 
     test "list_clubs/0 returns all clubs" do
-      club = club_fixture()
+      club = insert(:club)
       assert Clubs.list_clubs() == [club]
     end
 
     test "get_club!/1 returns the club with given id" do
-      club = club_fixture()
+      club = insert(:club)
       assert Clubs.get_club!(club.club_id) == club
     end
 
@@ -48,7 +46,7 @@ defmodule Granite.ClubsTest do
     end
 
     test "update_club/2 with valid data updates the club" do
-      club = club_fixture()
+      club = insert(:club)
 
       update_attrs = %{
         contact_email: "cluba1@example.com",
@@ -67,7 +65,7 @@ defmodule Granite.ClubsTest do
     end
 
     test "update_club/2 with invalid data returns error changeset" do
-      club = club_fixture()
+      club = insert(:club)
 
       assert {:error, %Ecto.Changeset{}} =
                Clubs.update_club(club, @invalid_attrs)
@@ -76,13 +74,13 @@ defmodule Granite.ClubsTest do
     end
 
     test "delete_club/1 deletes the club" do
-      club = club_fixture()
+      club = insert(:club)
       assert {:ok, %Club{}} = Clubs.delete_club(club)
       assert_raise Ecto.NoResultsError, fn -> Clubs.get_club!(club.club_id) end
     end
 
     test "change_club/1 returns a club changeset" do
-      club = club_fixture()
+      club = insert(:club)
       assert %Ecto.Changeset{} = Clubs.change_club(club)
     end
   end

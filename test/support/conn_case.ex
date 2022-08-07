@@ -23,6 +23,7 @@ defmodule GraniteWeb.ConnCase do
       import Plug.Conn
       import Phoenix.ConnTest
       import GraniteWeb.ConnCase
+      import Granite.Factory
 
       alias GraniteWeb.Router.Helpers, as: Routes
 
