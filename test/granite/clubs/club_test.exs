@@ -1,12 +1,17 @@
 defmodule Granite.Clubs.ClubTest do
   use Granite.DataCase
 
-  alias Granite.Repo
   alias Granite.Clubs.Club
+  alias Granite.Repo
 
   describe "schema validation" do
     test "changeset is invalid if not an email" do
       changeset = Club.changeset(%Club{}, %{contact_email: "not an email"})
+      assert %{contact_email: ["has invalid format"]} = errors_on(changeset)
+    end
+
+    test "changeset is invalid if email improperly formatted" do
+      changeset = Club.changeset(%Club{}, %{contact_email: "emai@domain"})
       assert %{contact_email: ["has invalid format"]} = errors_on(changeset)
     end
 
@@ -65,6 +70,18 @@ defmodule Granite.Clubs.ClubTest do
       changeset = Club.changeset(%Club{}, %{slug: "1-my club rocks"})
 
       assert Ecto.Changeset.get_field(changeset, :slug) == "1-my-club-rocks"
+    end
+
+    test "slug must be unique" do
+      club = insert(:club)
+      alt_club = build(:club, %{slug: club.slug})
+
+      {:error, alt_changeset} =
+        alt_club
+        |> Club.changeset(%{})
+        |> Repo.insert()
+
+      assert %{slug: ["has already been taken"]} = errors_on(alt_changeset)
     end
   end
 end
