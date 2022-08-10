@@ -16,6 +16,7 @@ defmodule GraniteWeb.ConnCase do
   """
 
   use ExUnit.CaseTemplate
+  alias GraniteWeb.Endpoint
 
   using do
     quote do
@@ -34,6 +35,20 @@ defmodule GraniteWeb.ConnCase do
 
   setup tags do
     Granite.DataCase.setup_sandbox(tags)
-    {:ok, conn: Phoenix.ConnTest.build_conn()}
+
+    conn =
+      case tags[:subdomain] do
+        nil ->
+          Phoenix.ConnTest.build_conn(:get, "http://granite.local/", nil)
+
+        somedomain ->
+          Phoenix.ConnTest.build_conn(
+            :get,
+            "http://#{somedomain}.granite.local/",
+            nil
+          )
+      end
+
+    {:ok, conn: conn}
   end
 end

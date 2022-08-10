@@ -13,7 +13,7 @@ config :granite,
 
 # Configures the endpoint
 config :granite, GraniteWeb.Endpoint,
-  url: [host: "localhost"],
+  url: [host: "granite.local"],
   render_errors: [
     view: GraniteWeb.ErrorView,
     accepts: ~w(html json),

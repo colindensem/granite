@@ -14,14 +14,24 @@ defmodule Granite.ClubsTest do
       slug: nil
     }
 
-    test "list_clubs/0 returns all clubs" do
+    setup do
+      club_alpha = Clubs.get_club_by_slug!("club-alpha")
+      {:ok, club_alpha: club_alpha}
+    end
+
+    test "list_clubs/0 returns all clubs", %{club_alpha: club_alpha} do
       club = insert(:club)
-      assert Clubs.list_clubs() == [club]
+      assert Clubs.list_clubs() == [club_alpha, club]
     end
 
     test "get_club!/1 returns the club with given id" do
       club = insert(:club)
       assert Clubs.get_club!(club.club_id) == club
+    end
+
+    test "get_club_by_slug!/1 returns the club with given subdomain slug" do
+      club = insert(:club)
+      assert Clubs.get_club_by_slug!(club.slug) == club
     end
 
     test "create_club/1 with valid data creates a club" do

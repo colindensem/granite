@@ -18,7 +18,7 @@ defmodule Granite.Clubs do
 
   """
   def list_clubs do
-    Repo.all(Club)
+    Repo.all(Club, skip_club_id: true)
   end
 
   @doc """
@@ -35,7 +35,34 @@ defmodule Granite.Clubs do
       ** (Ecto.NoResultsError)
 
   """
-  def get_club!(id), do: Repo.get!(Club, id)
+  def get_club!(id),
+    do: Repo.get!(Club, id, skip_club_id: true)
+
+  @doc """
+  Gets a single club by it's subdomain slug.
+
+  Raises `Ecto.NoResultsError` if the Club does not exist.
+
+  ## Examples
+
+  iex> get_club_by_slug!("bond")
+  %Club{}
+
+  iex> get_club!("bourne")
+  ** (Ecto.NoResultsError)
+
+  """
+  def get_club_by_slug!(slug) do
+    # do: Repo.get_by!(Club, slug: slug, skip_club_id: true)
+    query =
+      from c in Club,
+        where: c.slug == ^slug,
+        # where: o.is_active == true,
+        limit: 1
+
+    # # Send the query to the repository
+    Repo.one(query, skip_club_id: true)
+  end
 
   @doc """
   Creates a club.
@@ -52,7 +79,7 @@ defmodule Granite.Clubs do
   def create_club(attrs \\ %{}) do
     %Club{}
     |> Club.changeset(attrs)
-    |> Repo.insert()
+    |> Repo.insert(skip_club_id: true)
   end
 
   @doc """
@@ -70,7 +97,7 @@ defmodule Granite.Clubs do
   def update_club(%Club{} = club, attrs) do
     club
     |> Club.changeset(attrs)
-    |> Repo.update()
+    |> Repo.update(skip_club_id: true)
   end
 
   @doc """
@@ -86,7 +113,7 @@ defmodule Granite.Clubs do
 
   """
   def delete_club(%Club{} = club) do
-    Repo.delete(club)
+    Repo.delete(club, skip_club_id: true)
   end
 
   @doc """

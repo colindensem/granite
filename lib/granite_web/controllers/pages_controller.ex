@@ -5,11 +5,9 @@ defmodule GraniteWeb.PageController do
     render(conn, "index.html")
   end
 
-  def up(conn, _params) do
-    Ecto.Adapters.SQL.query!(Granite.Repo, "SELECT 1")
-
+  def privacy(conn, _params) do
     conn
     |> put_resp_content_type("text/html")
-    |> send_resp(:ok, "ok")
+    |> send_resp(:ok, "privacy")
   end
 end
