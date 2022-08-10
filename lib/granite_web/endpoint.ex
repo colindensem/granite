@@ -48,5 +48,8 @@ defmodule GraniteWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug GraniteWeb.Router
+  # Subdomain Router
+  plug GraniteWeb.Plug.Subdomain, GraniteWeb.Router
+  # Default Core Router
+  plug GraniteWeb.RouterLanding
 end

@@ -24,6 +24,7 @@ defmodule Granite.DataCase do
       import Ecto.Changeset
       import Ecto.Query
       import Granite.DataCase
+      import Granite.Factory
     end
   end
 
